@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<head>
+<title>admin form </title>
+</head>
+
+<body background="{% static 'images/admin2.jpg' %}"   topmargin= "100" >
+<center>
+<form name="formal">
+<h1><font face="<Lucida Handwriting" size=+5 color= "brown"> Login As A Admin User</font> </h1>
+<table cellspacing="15">
+<tr>
+<td>
+    <font  size=+2> <b>UserName </b></font>
+</td>
+<td>
+    <input size=+50 type="text" name="UserName">
+</td>
+</tr>
+<tr>
+<td>
+    <font size=+2> <b>Password</b></font>
+</td>
+<td>
+<input size=+50 type="password" name="Password">
+</td>
+</tr>
+</table>
+<br>
+    <input type="button"   name= "login" value ="Login" onclick="window.location.href='/details';">
+<br>
+</form>
+</center>
+</body>
+</html>

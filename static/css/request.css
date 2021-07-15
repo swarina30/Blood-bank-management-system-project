@@ -1,0 +1,62 @@
+body{
+	background-image:url("request1.jpg");
+	background-size:cover;
+	background-attachment:fixed;
+}
+.container{ 
+			border: 2px ;
+			height:300px;
+		}
+		.item{
+			border: 2px ;
+			width: 200px;
+			margin: 3px;
+			display: inline-block;
+		}
+		#box1{
+			width: 100%;
+		}
+		#box5{
+			width: 100%;
+		}
+		#box6{
+			width: 100%;
+		}
+		#box10{
+			width: 100%;
+		}
+		#nav2{
+			height:100px;
+			border: 2px solid black;
+			position:relative;
+		}
+		#logo2{    
+			margin: 10px 34px;
+			}
+
+		#logo2 img{    
+    height: 59px;
+    margin: 3px 6px;
+}
+		#logo2::before{
+			 content: "";
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: brown;
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,37 @@
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>admin</title>
+    <link rel="stylesheet" href="{% static 'css/details.css' %}">
+	</head>
+<body>
+<div id="nav4">
+		 <div id="logo4" class="item">
+             <img src="{% static 'images/admin.jpg' %}">
+         </div>
+        </div>
+		<div class="item"> <h1> <font color="white"> Admin </font> </h1> </div>
+		<section id="services-container">
+            <h1 class="h-primary center"></h1>
+        <div class="" id="services">
+            <div class="box" >
+                <h2 class="h-secondary center">Donor's List</h2>
+            </div>
+            </div>
+            <div class="box">
+                <h2 class="h-secondary center">Requestor's List</h2>
+               
+            </div>
+            <div class="box" >
+                <h2 class="h-secondary center">Blood Groups</h2>
+
+            </div>
+
+        </section>
+	<br>
+<button class="btn" onclick="window.location.href='adminform/';">Log Out </button>
+
+</body>
+</html>

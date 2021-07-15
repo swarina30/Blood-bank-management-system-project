@@ -1,0 +1,62 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blood bank </title>
+    <link rel="stylesheet" href="{% static 'css/front.css'%}"/>
+   </head>
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="{% static 'images/logo.jpg'%}"/>
+        </div>
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#services-container">Admin Login</a></li>
+            <li class="item"><a href="#box2">Request Blood</a></li>
+			 <li class="item"><a href="#box3">Search Donor</a></li>
+            <li class="item"><a href="#contact">About Us</a></li>
+        </ul>
+    </nav>
+<section id="home">
+        <h1 class="h-primary">Welcome to Blood Bank</h1>
+        <p> If you want to donate blood.Then register here. </p>
+
+        <button class="btn" onclick="window.location.href={% url 'donorform' %}">Register Now  </button>
+    </section>
+	<section id="services-container">
+        <h1 class="h-primary center"></h1>
+        <div class="" id="services">
+            <div class="box" >
+               <img src="{% static 'images/admin.jpg' %}"/>
+                <h2 class="h-secondary center" onclick="window.location.href='admin/';">Admin Login</h2>
+               
+            </div>
+            <div class="box" id="box2">
+                <img src="{% static 'images/request.jpg' %}"/>
+                <h2 class="h-secondary center"  onclick="window.location.href='request/';">Request Blood </h2>
+               
+            </div>
+            <div class="box" id="box3" >
+                <img src="{% static 'images/search.jpg' %}" />
+                <h2 class="h-secondary center" onclick="window.location.href='search/';">Search Donor</h2>
+                
+            </div>
+        </div>
+    </section>
+	<section id="contact">
+        <h1 class="h-primary center">About Us</h1>
+		<center>
+
+	    <p><h3>phone no.-1234567895 </h3>
+		<p><h3>Email :- bloodbank@gmail.com </h3>
+		<p> <h3>By donating blood with Blood Bank,many lives are saved and hope is given to many whose situation may otherwise be hopeless.Blood donor give such patients a second chance of life.</h3></p>
+        <div id="contact-box">
+
+        </div>
+        </center>
+    </section>

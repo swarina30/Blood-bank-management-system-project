@@ -1,0 +1,132 @@
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'css/request.css' %}"/>
+	<!--<script type="text/javascript" src="{% static 'js/request.js' %}"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+<body>
+<form action="" method="get" id="rform" name="formal">
+	<div id="nav2">
+		 <div id="logo2" class="item">
+            <img src="{% static 'images/logo.jpg' %}"/>
+        </div>
+		<div class="item"> <h1> <font color="white"> Request For Blood  </font> </h1> </div>
+		</div>
+	<div class="container">
+		<div class="item" id="box1">
+			<h1>Patient Details</h1>
+		</div>
+		<div class="item" id="box2"> 
+			<h3 class="h-secondary">Patient Name :</h3>
+			<input   id="pname" size=+20 type="text" name="Name">
+		</div>
+		<div class="item" id="box3"> 
+		<h3 class="h-secondary" >Doctor Name :</h3>
+			<input id="dname"  size=+20 type="text" name="doctorName">
+		</div>
+		<div class="item" id="box4"> 
+			<h3 class="h-secondary" id="b_grp">Blood Group :</h3>
+			<select name="dropdown">
+		<option value="A+">A+</option>
+		<option value="A-">A-</option>
+		<option value="B+">B+</option>
+      	<option value="B-">B-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
+		<option value="O+">O+</option>
+		<option value="O-">O-</option>
+		</select>
+		 </div>
+		<div class="item" id="box5"> 
+			<h3 class="h-secondary" >Address :</h3>
+			<input id="p_add" size=+150 type="text" name="Address">
+		</div>
+	</div>
+	<div class="container">
+		<div class="item" id="box6">
+			<h1>Contact Details</h1>
+		</div>
+		<div class="item" id="box7"> 
+			<h3 class="h-secondary" >Contact Name :</h3>
+			<input id="cname"  size=+20 type="text" name="ContactName">
+		</div>
+		<div class="item" id="box8"> 
+		<h3 class="h-secondary" >Mobile Number:</h3>
+			<input id="m_no" size=+20 type="text" name="MobileNo">
+		</div>
+		<div class="item" id="box9"> 
+			<h3 class="h-secondary" >Email Id:</h3>
+		<input id="email_id" size=+20 type="email" name="EmailId">
+		 </div>
+		<div class="item" id="box10"> 
+			<h3 class="h-secondary" >Address :</h3>
+			<input id="c_add1" size=+150 type="text" name="Address1">
+		</div>
+	</div>
+	<br>
+	<button class="btn" id="s_btn">Submit  </button>
+
+
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+	   $('#s_btn').on('click',function(e){
+	   			e.preventDefault();
+	   			if($('#pname').val()=="")
+  {
+    alert(" patient Name cannot be blanked");
+	return;
+   }
+ if($('#dname').val()=="")
+  {
+    alert("Doctor Name cannot be blanked");
+	return;
+  }
+  if($('#email_id').val()=="")
+   {
+     alert("Email Id cannot be blanked");
+	}
+  if($('#m_no').val().trim().length!=10)
+  {
+    alert("Mobile Number should be of 10 digits");
+	return;
+   }
+   if($('#cname').val()=="")
+  {
+    alert("Contact Name cannot be blanked");
+	return;
+   }
+   if($('#p_add').val()=="")
+  {
+    alert("Address cannot be blanked");
+	return;
+   }
+   				alert("form submited");
+	   			$.ajax({
+	   				type:'POST',
+	   				url:'/request/',
+	   				data:{
+	   					pname:$('#pname').val(),
+	   					email_id:$('#email_id').val(),
+	   					cname:$('#cname').val(),
+	   					b_grp:$('#b_grp').val(),
+	   					p_add:$('#p_add').val(),
+	   					m_no:$('#m_no').val(),
+	   					dname:$('#dname').val(),
+	   					},
+	   					dataType: 'json',
+	   					success:function(){
+								alert("form submited");
+	   					}
+	   					});
+	   					})
+
+</script>
+</html>

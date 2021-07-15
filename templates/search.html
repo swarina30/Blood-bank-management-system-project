@@ -1,0 +1,114 @@
+{% load static %}
+
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static 'css/search.css' %}"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+	</head>
+<body>
+<div id="nav3">
+		 <div id="logo3" class="item">
+            <img src="{% static 'images/logo.jpg' %}"/>
+        </div>
+</div>
+
+		<div class="item"> <h1> <font color="black"> Search For Blood Donor </font> </h1> </div>
+	<center>
+		<div class="container"> </div>
+			<div class="item" id="box4"> </div>
+			<h1 class="h-secondary"> search your blood group:</h1>
+			<select name="dropdown" id="bld_grp">
+		<option value="A+">A+</option>
+		<option value="A-">A-</option>
+		<option value="B+">B+</option>
+      	<option value="B-">B-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
+		<option value="O+">O+</option>
+		<option value="O-">O-</option>
+		</select>
+		<br>
+
+	<button class="btn" id="find_blood_grp">Submit  </button>
+
+
+
+
+</center>
+
+
+
+		<table id="donors_table" style="display:none;">
+		  <tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Age</th>
+			  <th>contact number</th>
+		  </tr>
+			<tbody id="table_body"> </tbody>
+		</table>
+
+
+
+
+</body>
+<script type="text/javascript">
+
+	   $('#find_blood_grp').on('click',function(e){
+	   			e.preventDefault();
+	   			$.ajax({
+	   				type:'POST',
+	   				url:'/get_donors_list/',
+	   				data:{
+	   					blood_grp:$('#bld_grp').val(),
+	   					},
+	   					dataType: 'json',
+	   					})
+	   					.done(function(data) {
+                        data_out = data;
+                        console.log('data')
+                        console.log(data_out)
+                        var donors =data_out["list_of_donors"]
+                        var no_of_donors=data_out["list_of_donors"].length;
+                        for (var i=0; i<no_of_donors; i++){
+
+
+		  					var row="<tr><td>"+donors[i]["name"]+"</td><td>"+donors[i]["email"]+"</td><td>"+donors[i]["age"]+"</td><td>"+donors[i]["contact_number"]+"</td></tr>"
+
+
+						$('#table_body').append(row)
+
+
+						}
+						$('#donors_table').show()
+	   					})
+	   					});
+
+
+</script>
+</html>
+
+
+		
